@@ -1,0 +1,9 @@
+.git
+data
+runs
+predictions
+results
+tests
+notebooks
+**/__pycache__
+*.pt

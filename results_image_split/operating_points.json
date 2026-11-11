@@ -1,0 +1,20 @@
+{
+  "spec_0.80": {
+    "threshold": 0.01964140124619,
+    "target_specificity": 0.8,
+    "val_sensitivity": 0.9842105263157894,
+    "val_specificity": 0.8
+  },
+  "spec_0.90": {
+    "threshold": 0.1075528115034103,
+    "target_specificity": 0.9,
+    "val_sensitivity": 0.9736842105263158,
+    "val_specificity": 0.9005405405405406
+  },
+  "spec_0.95": {
+    "threshold": 0.4132924973964691,
+    "target_specificity": 0.95,
+    "val_sensitivity": 0.9405263157894737,
+    "val_specificity": 0.9502702702702702
+  }
+}
