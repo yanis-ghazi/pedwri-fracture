@@ -61,9 +61,17 @@ Lesion level (2683 fracture boxes, IoU >= 0.3):
 | 1.0 | 0.984 |
 | 2.0 | 0.988 |
 
+Four test exams drawn at random by `pedwri.examples`, three with a fracture and one without. Reference boxes in green, predicted fracture boxes above 0.25 confidence in orange:
+
+![Random test exams with reference and predicted fracture boxes](results/examples.png)
+
 ![ROC curve on the test exams](results/roc_test.png)
 
 ![Missed positive exams by subgroup at the 90 % specificity threshold](results/errors/missed_exams.png)
+
+The 16 largest fracture boxes missed at the 90 % specificity threshold, with age and AO code:
+
+![Largest missed fracture boxes](results/errors/missed_largest.png)
 
 At the 90 % specificity threshold, 17 of 416 positive initial exams are missed against 6 of 692 positive follow-ups. False positives concentrate on negative exams under a cast (7 of 11) and on negative exams that carry an AO code without any fracture box (10 of 17).
 
@@ -96,6 +104,7 @@ python -m pedwri.train --data data/prepared
 python -m pedwri.predict --weights runs/yolo11s_1024/weights/best.pt --data data/prepared --out predictions
 python -m pedwri.evaluate --data data/prepared --pred-dir predictions --out results
 python -m pedwri.errors --results results --images data/prepared/images/test
+python -m pedwri.examples --data data/prepared --pred-dir predictions --results results
 ```
 
 The leakage control repeats training and evaluation on a re-split copy, then compares seen and unseen children:
