@@ -43,6 +43,12 @@ def test_prepare_evaluate_errors(tmp_path):
     assert (res / "errors" / "missed_exams.png").exists()
     assert (res / "errors" / "missed_exams_by_fracture_pattern.csv").exists()
 
+    from pedwri import examples
+
+    examples.main(["--data", str(out), "--pred-dir", str(preds), "--results", str(res), "--n-pos", "2",
+                   "--n-neg", "1", "--box-score", "0.0", "--height", "96"])
+    assert (res / "examples.png").exists()
+
 
 def test_image_resplit_leaks_patients(tmp_path):
     from pedwri import resplit
